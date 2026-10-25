@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/limit-case/glassbench/data/schema/sample-meta.schema.json",
+  "title": "GlassBench sample scene meta.json",
+  "type": "object",
+  "required": [
+    "seed",
+    "variant",
+    "intrinsics",
+    "baseline",
+    "cam_matrix_world",
+    "objects",
+    "n_opaque"
+  ],
+  "properties": {
+    "seed": {
+      "type": "integer"
+    },
+    "variant": {
+      "enum": [
+        "d415",
+        "d435",
+        "l515"
+      ]
+    },
+    "intrinsics": {
+      "type": "object",
+      "required": [
+        "fx",
+        "fy",
+        "cx",
+        "cy",
+        "width",
+        "height"
+      ],
+      "properties": {
+        "fx": {
+          "type": "number"
+        },
+        "fy": {
+          "type": "number"
+        },
+        "cx": {
+          "type": "number"
+        },
+        "cy": {
+          "type": "number"
+        },
+        "width": {
+          "type": "integer"
+        },
+        "height": {
+          "type": "integer"
+        }
+      }
+    },
+    "baseline": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "cam_matrix_world": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "array",
+        "minItems": 4,
+        "maxItems": 4,
+        "items": {
+          "type": "number"
+        }
+      }
+    },
+    "camera_dist": {
+      "type": "number"
+    },
+    "camera_elev_deg": {
+      "type": "number"
+    },
+    "exposure": {
+      "type": "number"
+    },
+    "texture": {
+      "type": "string"
+    },
+    "wall": {
+      "type": "boolean"
+    },
+    "world": {
+      "type": "string"
+    },
+    "n_lights": {
+      "type": "integer"
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "model",
+          "plastic"
+        ],
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "plastic": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "n_opaque": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "number"
+    }
+  }
+}

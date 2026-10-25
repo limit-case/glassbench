@@ -1,0 +1,66 @@
+{
+ "cam_matrix_world": [
+  [
+   -0.37358558177948,
+   0.6770250201225281,
+   -0.6340906023979187,
+   -0.4256436824798584
+  ],
+  [
+   -0.9275954961776733,
+   -0.2722245156764984,
+   0.25585222244262695,
+   0.2191397249698639
+  ],
+  [
+   0.0006033268291503191,
+   0.6837623119354248,
+   0.7297045588493347,
+   0.5287520289421082
+  ],
+  [
+   0.0,
+   0.0,
+   0.0,
+   1.0
+  ]
+ ],
+ "exposure": -7.420185905520053,
+ "seed": 1,
+ "variant": "l515",
+ "intrinsics": {
+  "fx": 451.2015,
+  "fy": 451.40150000000006,
+  "cx": 325.4805,
+  "cy": 182.7205,
+  "width": 640,
+  "height": 360
+ },
+ "baseline": null,
+ "texture": "checker",
+ "wall": false,
+ "world": "uniform",
+ "n_lights": 3,
+ "objects": [
+  {
+   "model": "star-bath-bomb.obj",
+   "plastic": false
+  },
+  {
+   "model": "flower-bath-bomb.obj",
+   "plastic": false
+  },
+  {
+   "model": "glass-square-potion.obj",
+   "plastic": false
+  },
+  {
+   "model": "square-plastic-bottle.obj",
+   "plastic": true
+  }
+ ],
+ "n_opaque": 0,
+ "camera_dist": 0.669794332200931,
+ "camera_elev_deg": 46.86163592257381,
+ "total": 2.6109108924865723
+}

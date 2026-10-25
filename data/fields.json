@@ -1,0 +1,1270 @@
+{
+  "release": "0.1.0",
+  "files": {
+    "data/three_bucket_summary.csv": {
+      "description": "Main result: three-bucket summary of raw depth per evaluation set, region and tolerance.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set: `CG d415`, `CG d435 test`, `CG d435 val` (ClearGrasp real), `TransCG D435`, `TransCG L515`."
+        },
+        {
+          "name": "region",
+          "description": "`mask` = inside the transparent-object mask; `nonmask` = ClearGrasp control region (TransCG has none, see measurement.md)."
+        },
+        {
+          "name": "tol",
+          "description": "Tolerance: `abs1cm` = 1 cm absolute; `rel5%` = 5% of ground-truth depth."
+        },
+        {
+          "name": "images",
+          "description": "Images in the set."
+        },
+        {
+          "name": "images_with_gt",
+          "description": "Images with at least one GT-valid pixel in the region."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted, summed over images."
+        },
+        {
+          "name": "correct_pooled",
+          "description": "Percent of pixels with a return within tolerance, pooled over all pixels."
+        },
+        {
+          "name": "correct_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "correct_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "correct_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "missing_pooled",
+          "description": "Percent of pixels with no return (raw depth = 0), pooled."
+        },
+        {
+          "name": "missing_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "missing_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "missing_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_pooled",
+          "description": "Percent of pixels with a return outside tolerance (confidently wrong), pooled."
+        },
+        {
+          "name": "wrong_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "wrong_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_far_share_pooled",
+          "description": "Percent of wrong pixels whose raw depth is farther than ground truth, pooled."
+        },
+        {
+          "name": "wrong_far_share_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_diff_cm_med",
+          "description": "Median of raw - GT in cm over wrong pixels, pooled (0.05 cm histogram resolution)."
+        },
+        {
+          "name": "wrong_diff_cm_p90",
+          "description": "90th percentile of raw - GT in cm over wrong pixels, pooled."
+        }
+      ]
+    },
+    "data/three_bucket_summary_erode3.csv": {
+      "description": "Same as `three_bucket_summary.csv` with the transparent mask eroded by 3 px.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set: `CG d415`, `CG d435 test`, `CG d435 val` (ClearGrasp real), `TransCG D435`, `TransCG L515`."
+        },
+        {
+          "name": "region",
+          "description": "`mask` = inside the transparent-object mask; `nonmask` = ClearGrasp control region (TransCG has none, see measurement.md)."
+        },
+        {
+          "name": "tol",
+          "description": "Tolerance: `abs1cm` = 1 cm absolute; `rel5%` = 5% of ground-truth depth."
+        },
+        {
+          "name": "images",
+          "description": "Images in the set."
+        },
+        {
+          "name": "images_with_gt",
+          "description": "Images with at least one GT-valid pixel in the region."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted, summed over images."
+        },
+        {
+          "name": "correct_pooled",
+          "description": "Percent of pixels with a return within tolerance, pooled over all pixels."
+        },
+        {
+          "name": "correct_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "correct_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "correct_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "missing_pooled",
+          "description": "Percent of pixels with no return (raw depth = 0), pooled."
+        },
+        {
+          "name": "missing_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "missing_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "missing_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_pooled",
+          "description": "Percent of pixels with a return outside tolerance (confidently wrong), pooled."
+        },
+        {
+          "name": "wrong_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "wrong_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_far_share_pooled",
+          "description": "Percent of wrong pixels whose raw depth is farther than ground truth, pooled."
+        },
+        {
+          "name": "wrong_far_share_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_diff_cm_med",
+          "description": "Median of raw - GT in cm over wrong pixels, pooled (0.05 cm histogram resolution)."
+        },
+        {
+          "name": "wrong_diff_cm_p90",
+          "description": "90th percentile of raw - GT in cm over wrong pixels, pooled."
+        }
+      ]
+    },
+    "data/three_bucket_summary_erode5.csv": {
+      "description": "Same as `three_bucket_summary.csv` with the transparent mask eroded by 5 px.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set: `CG d415`, `CG d435 test`, `CG d435 val` (ClearGrasp real), `TransCG D435`, `TransCG L515`."
+        },
+        {
+          "name": "region",
+          "description": "`mask` = inside the transparent-object mask; `nonmask` = ClearGrasp control region (TransCG has none, see measurement.md)."
+        },
+        {
+          "name": "tol",
+          "description": "Tolerance: `abs1cm` = 1 cm absolute; `rel5%` = 5% of ground-truth depth."
+        },
+        {
+          "name": "images",
+          "description": "Images in the set."
+        },
+        {
+          "name": "images_with_gt",
+          "description": "Images with at least one GT-valid pixel in the region."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted, summed over images."
+        },
+        {
+          "name": "correct_pooled",
+          "description": "Percent of pixels with a return within tolerance, pooled over all pixels."
+        },
+        {
+          "name": "correct_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "correct_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "correct_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "missing_pooled",
+          "description": "Percent of pixels with no return (raw depth = 0), pooled."
+        },
+        {
+          "name": "missing_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "missing_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "missing_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_pooled",
+          "description": "Percent of pixels with a return outside tolerance (confidently wrong), pooled."
+        },
+        {
+          "name": "wrong_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "wrong_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_far_share_pooled",
+          "description": "Percent of wrong pixels whose raw depth is farther than ground truth, pooled."
+        },
+        {
+          "name": "wrong_far_share_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_diff_cm_med",
+          "description": "Median of raw - GT in cm over wrong pixels, pooled (0.05 cm histogram resolution)."
+        },
+        {
+          "name": "wrong_diff_cm_p90",
+          "description": "90th percentile of raw - GT in cm over wrong pixels, pooled."
+        }
+      ]
+    },
+    "data/three_bucket_summary_biascorrect.csv": {
+      "description": "Same as `three_bucket_summary.csv` after the per-image plane + scale bias correction (ClearGrasp only; TransCG rows are uncorrected).",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set: `CG d415`, `CG d435 test`, `CG d435 val` (ClearGrasp real), `TransCG D435`, `TransCG L515`."
+        },
+        {
+          "name": "region",
+          "description": "`mask` = inside the transparent-object mask; `nonmask` = ClearGrasp control region (TransCG has none, see measurement.md)."
+        },
+        {
+          "name": "tol",
+          "description": "Tolerance: `abs1cm` = 1 cm absolute; `rel5%` = 5% of ground-truth depth."
+        },
+        {
+          "name": "images",
+          "description": "Images in the set."
+        },
+        {
+          "name": "images_with_gt",
+          "description": "Images with at least one GT-valid pixel in the region."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted, summed over images."
+        },
+        {
+          "name": "correct_pooled",
+          "description": "Percent of pixels with a return within tolerance, pooled over all pixels."
+        },
+        {
+          "name": "correct_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "correct_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "correct_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "missing_pooled",
+          "description": "Percent of pixels with no return (raw depth = 0), pooled."
+        },
+        {
+          "name": "missing_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "missing_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "missing_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_pooled",
+          "description": "Percent of pixels with a return outside tolerance (confidently wrong), pooled."
+        },
+        {
+          "name": "wrong_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_p10",
+          "description": "Same, per-image 10th percentile."
+        },
+        {
+          "name": "wrong_p90",
+          "description": "Same, per-image 90th percentile."
+        },
+        {
+          "name": "wrong_far_share_pooled",
+          "description": "Percent of wrong pixels whose raw depth is farther than ground truth, pooled."
+        },
+        {
+          "name": "wrong_far_share_med",
+          "description": "Same, per-image median."
+        },
+        {
+          "name": "wrong_diff_cm_med",
+          "description": "Median of raw - GT in cm over wrong pixels, pooled (0.05 cm histogram resolution)."
+        },
+        {
+          "name": "wrong_diff_cm_p90",
+          "description": "90th percentile of raw - GT in cm over wrong pixels, pooled."
+        }
+      ]
+    },
+    "data/three_bucket_per_image.csv": {
+      "description": "Three-bucket pixel counts per image, region and tolerance.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "id",
+          "description": "Image identifier within the source dataset (split/camera/index for ClearGrasp, scene/view for TransCG)."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "n",
+          "description": "GT-valid pixels in the region."
+        },
+        {
+          "name": "missing",
+          "description": "Pixels with no return."
+        },
+        {
+          "name": "correct",
+          "description": "Pixels with a return within tolerance."
+        },
+        {
+          "name": "wrong",
+          "description": "Pixels with a return outside tolerance."
+        },
+        {
+          "name": "wrong_far",
+          "description": "Wrong pixels with raw depth farther than ground truth."
+        }
+      ]
+    },
+    "data/three_bucket_per_image_erode3.csv": {
+      "description": "Per-image counts with the mask eroded by 3 px.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "id",
+          "description": "Image identifier within the source dataset (split/camera/index for ClearGrasp, scene/view for TransCG)."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "n",
+          "description": "GT-valid pixels in the region."
+        },
+        {
+          "name": "missing",
+          "description": "Pixels with no return."
+        },
+        {
+          "name": "correct",
+          "description": "Pixels with a return within tolerance."
+        },
+        {
+          "name": "wrong",
+          "description": "Pixels with a return outside tolerance."
+        },
+        {
+          "name": "wrong_far",
+          "description": "Wrong pixels with raw depth farther than ground truth."
+        }
+      ]
+    },
+    "data/three_bucket_per_image_erode5.csv": {
+      "description": "Per-image counts with the mask eroded by 5 px.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "id",
+          "description": "Image identifier within the source dataset (split/camera/index for ClearGrasp, scene/view for TransCG)."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "n",
+          "description": "GT-valid pixels in the region."
+        },
+        {
+          "name": "missing",
+          "description": "Pixels with no return."
+        },
+        {
+          "name": "correct",
+          "description": "Pixels with a return within tolerance."
+        },
+        {
+          "name": "wrong",
+          "description": "Pixels with a return outside tolerance."
+        },
+        {
+          "name": "wrong_far",
+          "description": "Wrong pixels with raw depth farther than ground truth."
+        }
+      ]
+    },
+    "data/three_bucket_per_image_biascorrect.csv": {
+      "description": "Per-image counts after bias correction.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "id",
+          "description": "Image identifier within the source dataset (split/camera/index for ClearGrasp, scene/view for TransCG)."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "n",
+          "description": "GT-valid pixels in the region."
+        },
+        {
+          "name": "missing",
+          "description": "Pixels with no return."
+        },
+        {
+          "name": "correct",
+          "description": "Pixels with a return within tolerance."
+        },
+        {
+          "name": "wrong",
+          "description": "Pixels with a return outside tolerance."
+        },
+        {
+          "name": "wrong_far",
+          "description": "Wrong pixels with raw depth farther than ground truth."
+        }
+      ]
+    },
+    "data/bias_params_biascorrect.csv": {
+      "description": "Fitted bias model per ClearGrasp image: raw = a*GT + b*x + c*y + d.",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "id",
+          "description": "Image identifier."
+        },
+        {
+          "name": "a",
+          "description": "Depth scale factor (dimensionless)."
+        },
+        {
+          "name": "b_per_px",
+          "description": "Horizontal gradient, metres per pixel from the image centre."
+        },
+        {
+          "name": "c_per_px",
+          "description": "Vertical gradient, metres per pixel from the image centre."
+        },
+        {
+          "name": "d_cm",
+          "description": "Offset at the image centre, cm."
+        },
+        {
+          "name": "tilt_cm",
+          "description": "Plane gradient across the image, cm."
+        },
+        {
+          "name": "bias_rms_cm",
+          "description": "RMS of fitted model minus GT over the fit pixels, cm. The reliable size of the bias."
+        }
+      ]
+    },
+    "data/object_proxy.csv": {
+      "description": "Per-object consequence proxy: how far the median returned depth of each transparent object is from ground truth. Analysis only; not a grasping experiment.",
+      "fields": [
+        {
+          "name": "group",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "objects",
+          "description": "Connected components of the GT transparent mask of at least 200 pixels."
+        },
+        {
+          "name": "objects_with_return",
+          "description": "Objects with enough returned GT-valid pixels to take a median (at least 20; see object_proxy.py)."
+        },
+        {
+          "name": "no_return_pct",
+          "description": "Percent of objects without enough returned pixels: a visible failure."
+        },
+        {
+          "name": "mostly_missing_pct",
+          "description": "Percent of objects with fewer than half of their GT-valid pixels returned."
+        },
+        {
+          "name": "off_gt2cm_pct",
+          "description": "Percent of objects with a return whose median raw - GT error exceeds 2 cm in magnitude."
+        },
+        {
+          "name": "off_gt5cm_pct",
+          "description": "Same for 5 cm."
+        },
+        {
+          "name": "off_gt5cm_too_far_pct",
+          "description": "Percent of the objects off by more than 5 cm whose error reads too far."
+        },
+        {
+          "name": "median_abs_err_cm",
+          "description": "Median over objects with a return of |median raw - GT|, cm."
+        },
+        {
+          "name": "median_signed_err_cm",
+          "description": "Median over objects with a return of the signed median raw - GT, cm (positive = too far)."
+        }
+      ]
+    },
+    "data/models_summary.csv": {
+      "description": "Raw sensor and model outputs scored with the same three buckets.",
+      "fields": [
+        {
+          "name": "model",
+          "description": "`raw`; `A_rel_aligned`, `A_rel_local` (Depth Anything V2 Small relative, global / ring alignment); `A_metric` (metric-indoor, as is); `A_metric_aligned`, `A_metric_local`; `B_dfnet` (TransCG DFNet)."
+        },
+        {
+          "name": "camera",
+          "description": "Evaluation set; TransCG rows are split into `(test scenes)`, `(train scenes)` and `(all sampled)`."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "images",
+          "description": "Images scored."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted."
+        },
+        {
+          "name": "correct",
+          "description": "Percent correct, pooled."
+        },
+        {
+          "name": "missing",
+          "description": "Percent missing, pooled (about 0 for dense models)."
+        },
+        {
+          "name": "wrong",
+          "description": "Percent confidently wrong, pooled."
+        },
+        {
+          "name": "correct_img_med",
+          "description": "Per-image median percent correct."
+        },
+        {
+          "name": "missing_img_med",
+          "description": "Per-image median percent missing."
+        },
+        {
+          "name": "wrong_img_med",
+          "description": "Per-image median percent wrong."
+        },
+        {
+          "name": "wrong_far_share",
+          "description": "Percent of wrong pixels reading farther than ground truth."
+        },
+        {
+          "name": "err_cm_med",
+          "description": "Median of output - GT in cm over wrong pixels."
+        },
+        {
+          "name": "err_cm_p90",
+          "description": "90th percentile of the same."
+        }
+      ]
+    },
+    "data/models_transitions.csv": {
+      "description": "Where each raw-sensor bucket ends up after a model.",
+      "fields": [
+        {
+          "name": "model",
+          "description": "Model, as in `models_summary.csv`."
+        },
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "raw_bucket",
+          "description": "Bucket of the pixel in the raw sensor: `correct`, `missing`, `wrong`."
+        },
+        {
+          "name": "model_bucket",
+          "description": "Bucket of the same pixel in the model output."
+        },
+        {
+          "name": "pixels",
+          "description": "Pixels moving from `raw_bucket` to `model_bucket`."
+        },
+        {
+          "name": "pct_of_raw_bucket",
+          "description": "`pixels` as a percent of all pixels in `raw_bucket`."
+        },
+        {
+          "name": "still_too_far_pct",
+          "description": "For wrong -> wrong: percent of those pixels where the model also reads farther than ground truth."
+        }
+      ]
+    },
+    "data/models_alignment.csv": {
+      "description": "Quality of the per-image scale+shift fit used for Depth Anything V2.",
+      "fields": [
+        {
+          "name": "model",
+          "description": "Aligned variant: `A_rel_aligned`, `A_rel_local`, `A_metric_aligned`, `A_metric_local`."
+        },
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "images",
+          "description": "Images fitted."
+        },
+        {
+          "name": "ref_rmse_cm_med",
+          "description": "Median over images of the RMSE of aligned depth against GT on the fit pixels, cm."
+        },
+        {
+          "name": "ref_rmse_cm_p90",
+          "description": "90th percentile of the same."
+        },
+        {
+          "name": "slope_med",
+          "description": "Median fitted slope."
+        },
+        {
+          "name": "frac_nonpositive_slope",
+          "description": "Fraction of images whose fitted slope was zero or negative."
+        }
+      ]
+    },
+    "data/flagging_summary.csv": {
+      "description": "Can the ClearGrasp mask-segmentation network flag the confidently wrong pixels?",
+      "fields": [
+        {
+          "name": "camera",
+          "description": "Evaluation set."
+        },
+        {
+          "name": "images",
+          "description": "Images scored."
+        },
+        {
+          "name": "mask_iou_pooled",
+          "description": "Mask intersection-over-union against the GT mask, pooled, percent."
+        },
+        {
+          "name": "mask_iou_img_med",
+          "description": "Per-image median IoU, percent."
+        },
+        {
+          "name": "mask_iou_img_p10",
+          "description": "Per-image 10th percentile."
+        },
+        {
+          "name": "mask_iou_img_p90",
+          "description": "Per-image 90th percentile."
+        },
+        {
+          "name": "pred_coverage_vs_gt",
+          "description": "Predicted mask area as a percent of GT mask area."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "wrong_px_in_gt_mask_pct",
+          "description": "Percent of raw confidently wrong pixels that lie inside the GT mask."
+        },
+        {
+          "name": "flag_recall_in_gt_mask",
+          "description": "Percent of wrong pixels inside the GT mask that fall in the predicted mask."
+        },
+        {
+          "name": "flag_recall_in_gt_mask_img_med",
+          "description": "Per-image median of the same."
+        },
+        {
+          "name": "flag_recall_all_wrong",
+          "description": "Percent of all raw confidently wrong pixels that fall in the predicted mask."
+        },
+        {
+          "name": "correct_px_flagged_pct",
+          "description": "Percent of correct raw pixels that the predicted mask would discard."
+        },
+        {
+          "name": "flagged_returned_px_wrong_pct",
+          "description": "Percent of flagged pixels that returned a depth and are wrong."
+        }
+      ]
+    },
+    "data/synth_vs_real.csv": {
+      "description": "Simulated sensors (uncalibrated settings) against real results.",
+      "fields": [
+        {
+          "name": "sensor",
+          "description": "`d415`, `d435` (active stereo) or `l515` (ToF approximation)."
+        },
+        {
+          "name": "source",
+          "description": "`real`, `synthetic` or `synthetic_opaque_twin`."
+        },
+        {
+          "name": "camera",
+          "description": "Evaluation set or synthetic set with its scene count."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "images",
+          "description": "Images or scenes."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted."
+        },
+        {
+          "name": "correct",
+          "description": "Percent correct, pooled over pixels."
+        },
+        {
+          "name": "missing",
+          "description": "Percent missing, pooled."
+        },
+        {
+          "name": "wrong",
+          "description": "Percent confidently wrong, pooled."
+        },
+        {
+          "name": "wrong_among_returned",
+          "description": "wrong / (correct + wrong), in percent."
+        },
+        {
+          "name": "wrong_far_share",
+          "description": "Percent of wrong pixels that read farther than ground truth."
+        },
+        {
+          "name": "err_cm_med",
+          "description": "Median of output - GT in cm over wrong pixels."
+        },
+        {
+          "name": "err_cm_p90",
+          "description": "90th percentile of output - GT in cm over wrong pixels."
+        },
+        {
+          "name": "correct_img_med",
+          "description": "Per-image median percent correct."
+        },
+        {
+          "name": "missing_img_med",
+          "description": "Per-image median percent missing."
+        },
+        {
+          "name": "wrong_img_med",
+          "description": "Per-image median percent wrong."
+        }
+      ]
+    },
+    "data/calibration_targets.csv": {
+      "description": "Real targets of the calibration sets, computed before any search.",
+      "fields": [
+        {
+          "name": "sensor",
+          "description": "`stereo` or `tof`."
+        },
+        {
+          "name": "set",
+          "description": "Real calibration set."
+        },
+        {
+          "name": "images",
+          "description": "Images."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels."
+        },
+        {
+          "name": "correct",
+          "description": "Percent correct, pooled over pixels."
+        },
+        {
+          "name": "missing",
+          "description": "Percent missing, pooled."
+        },
+        {
+          "name": "wrong",
+          "description": "Percent confidently wrong, pooled."
+        },
+        {
+          "name": "wrong_among_returned",
+          "description": "wrong / (correct + wrong), in percent."
+        },
+        {
+          "name": "wrong_far_share",
+          "description": "Percent of wrong pixels that read farther than ground truth."
+        },
+        {
+          "name": "err_cm_med",
+          "description": "Median of output - GT in cm over wrong pixels."
+        },
+        {
+          "name": "err_cm_p90",
+          "description": "90th percentile of output - GT in cm over wrong pixels."
+        }
+      ]
+    },
+    "data/calibration_search.csv": {
+      "description": "Every grid-search setting and its calibration loss.",
+      "fields": [
+        {
+          "name": "sensor",
+          "description": "`stereo` or `tof`."
+        },
+        {
+          "name": "uniqueness",
+          "description": "Stereo: SGBM uniqueness ratio."
+        },
+        {
+          "name": "lr_tol",
+          "description": "Stereo: left-right check tolerance (disp12MaxDiff)."
+        },
+        {
+          "name": "texture_min",
+          "description": "Stereo: minimum local IR contrast (9x9 standard deviation)."
+        },
+        {
+          "name": "g",
+          "description": "ToF: glass-return gain."
+        },
+        {
+          "name": "t_glass",
+          "description": "ToF: per-pass glass transmission."
+        },
+        {
+          "name": "a_min",
+          "description": "ToF: minimum return amplitude."
+        },
+        {
+          "name": "correct",
+          "description": "Percent correct on the simulated calibration scenes."
+        },
+        {
+          "name": "missing",
+          "description": "Percent missing."
+        },
+        {
+          "name": "wrong",
+          "description": "Percent wrong."
+        },
+        {
+          "name": "wrong_among_returned",
+          "description": "wrong / (correct + wrong), percent."
+        },
+        {
+          "name": "loss",
+          "description": "Calibration loss in percentage points: |correct - real| + |missing - real| + |wrong - real|."
+        },
+        {
+          "name": "opaque_correct",
+          "description": "Stereo only: percent correct on opaque-twin renders (must be at least 98)."
+        },
+        {
+          "name": "valid",
+          "description": "True when the setting satisfies the opaque-twin constraint."
+        }
+      ]
+    },
+    "data/calibration_heldout.csv": {
+      "description": "Held-out evaluation after the calibration parameters were frozen.",
+      "fields": [
+        {
+          "name": "sensor",
+          "description": "`stereo` or `tof`."
+        },
+        {
+          "name": "pair",
+          "description": "Real held-out set the row is compared with."
+        },
+        {
+          "name": "source",
+          "description": "`real ...`, `sim uncalibrated (...)` or `sim calibrated (...)`."
+        },
+        {
+          "name": "region",
+          "description": "`mask` or `nonmask`."
+        },
+        {
+          "name": "tol",
+          "description": "`abs1cm` or `rel5%`."
+        },
+        {
+          "name": "images",
+          "description": "Images or scenes."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted."
+        },
+        {
+          "name": "correct",
+          "description": "Percent correct, pooled over pixels."
+        },
+        {
+          "name": "missing",
+          "description": "Percent missing, pooled."
+        },
+        {
+          "name": "wrong",
+          "description": "Percent confidently wrong, pooled."
+        },
+        {
+          "name": "wrong_among_returned",
+          "description": "wrong / (correct + wrong), in percent."
+        },
+        {
+          "name": "wrong_far_share",
+          "description": "Percent of wrong pixels that read farther than ground truth."
+        },
+        {
+          "name": "err_cm_med",
+          "description": "Median of output - GT in cm over wrong pixels."
+        },
+        {
+          "name": "err_cm_p90",
+          "description": "90th percentile of output - GT in cm over wrong pixels."
+        },
+        {
+          "name": "loss_vs_real",
+          "description": "Simulated rows only: sum of absolute differences of correct, missing and wrong against the real row, percentage points."
+        }
+      ]
+    },
+    "data/fov_check.csv": {
+      "description": "Sensitivity of D415-like results to the horizontal field of view.",
+      "fields": [
+        {
+          "name": "setting",
+          "description": "`uncalibrated` or `calibrated` simulator settings."
+        },
+        {
+          "name": "hfov_deg",
+          "description": "Horizontal field of view in degrees."
+        },
+        {
+          "name": "missing",
+          "description": "Percent missing."
+        },
+        {
+          "name": "correct",
+          "description": "Percent correct."
+        },
+        {
+          "name": "wrong",
+          "description": "Percent wrong."
+        },
+        {
+          "name": "wrong_among_returned",
+          "description": "wrong / (correct + wrong), percent."
+        },
+        {
+          "name": "pixels",
+          "description": "GT-valid pixels counted."
+        }
+      ]
+    },
+    "data/configs/sgbm.json": {
+      "description": "Frozen OpenCV SGBM settings of the stereo simulator.",
+      "fields": [
+        {
+          "name": "min_disp",
+          "description": "Minimum disparity, pixels."
+        },
+        {
+          "name": "block",
+          "description": "Matching block size."
+        },
+        {
+          "name": "uniqueness",
+          "description": "Uniqueness ratio before calibration."
+        },
+        {
+          "name": "speckle_window",
+          "description": "Speckle filter window."
+        },
+        {
+          "name": "speckle_range",
+          "description": "Speckle filter range."
+        },
+        {
+          "name": "disp12",
+          "description": "Left-right check tolerance before calibration."
+        },
+        {
+          "name": "prefilter_cap",
+          "description": "Prefilter cap."
+        },
+        {
+          "name": "min_depth",
+          "description": "Shortest depth kept, metres."
+        },
+        {
+          "name": "max_depth",
+          "description": "Longest depth kept, metres."
+        },
+        {
+          "name": "num_disp",
+          "description": "Disparity range in pixels per variant (`d415`, `d435`)."
+        },
+        {
+          "name": "_note",
+          "description": "How the settings were frozen."
+        }
+      ]
+    },
+    "data/configs/calibrated.json": {
+      "description": "Calibration parameters frozen before the held-out evaluation.",
+      "fields": [
+        {
+          "name": "_note",
+          "description": "How the parameters were chosen."
+        },
+        {
+          "name": "stereo.params",
+          "description": "`uniqueness`, `lr_tol`, `texture_min` (see `calibration_search.csv`)."
+        },
+        {
+          "name": "stereo.calibration_loss",
+          "description": "Loss on the calibration set, percentage points."
+        },
+        {
+          "name": "stereo.uncalibrated_loss",
+          "description": "Loss of the original settings on the same set."
+        },
+        {
+          "name": "tof.params",
+          "description": "`g`, `t_glass`, `a_min`."
+        },
+        {
+          "name": "tof.calibration_loss",
+          "description": "Loss on the calibration set, percentage points."
+        },
+        {
+          "name": "tof.uncalibrated_loss",
+          "description": "Loss of the original settings on the same set."
+        }
+      ]
+    },
+    "data/pose_check_output.txt": {
+      "description": "Console output of `tools/checks/check_transcg_pose.py`: ratio of ground-truth depth to projected object-pose depth, used to verify the TransCG depth units.",
+      "fields": []
+    },
+    "examples/sample/<sensor>/<seed>/meta.json": {
+      "description": "Scene description of a sample scene.",
+      "fields": [
+        {
+          "name": "seed",
+          "type": "integer",
+          "description": "Scene seed."
+        },
+        {
+          "name": "variant",
+          "type": "string",
+          "description": "`d415`, `d435` or `l515`."
+        },
+        {
+          "name": "intrinsics",
+          "type": "object",
+          "description": "`fx`, `fy`, `cx`, `cy` in pixels; `width`, `height` in pixels."
+        },
+        {
+          "name": "baseline",
+          "type": "number",
+          "description": "Stereo baseline in metres; null for the ToF variant."
+        },
+        {
+          "name": "cam_matrix_world",
+          "type": "4x4 array",
+          "description": "Camera-to-world pose."
+        },
+        {
+          "name": "camera_dist",
+          "type": "number",
+          "description": "Camera distance from the scene centre, metres."
+        },
+        {
+          "name": "camera_elev_deg",
+          "type": "number",
+          "description": "Camera elevation, degrees."
+        },
+        {
+          "name": "exposure",
+          "type": "number",
+          "description": "Exposure of the visible-light render."
+        },
+        {
+          "name": "texture",
+          "type": "string",
+          "description": "Table texture."
+        },
+        {
+          "name": "wall",
+          "type": "boolean",
+          "description": "Whether a backdrop wall is present."
+        },
+        {
+          "name": "world",
+          "type": "string",
+          "description": "World lighting."
+        },
+        {
+          "name": "n_lights",
+          "type": "integer",
+          "description": "Number of lights."
+        },
+        {
+          "name": "objects",
+          "type": "array",
+          "description": "Transparent objects: `model` (ClearGrasp 3D model file) and `plastic` (clear plastic instead of glass)."
+        },
+        {
+          "name": "n_opaque",
+          "type": "integer",
+          "description": "Opaque distractor objects."
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": "Render time, seconds."
+        }
+      ]
+    }
+  }
+}

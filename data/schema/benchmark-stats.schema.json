@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/limit-case/glassbench/data/schema/benchmark-stats.schema.json",
+  "title": "GlassBench headline numbers",
+  "type": "object",
+  "required": [
+    "release",
+    "protocol",
+    "headline",
+    "groups",
+    "models",
+    "calibration_heldout_loss_pp"
+  ],
+  "properties": {
+    "release": {
+      "type": "string"
+    },
+    "protocol": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "object",
+      "required": [
+        "real_images",
+        "evaluation_sets",
+        "wrong_pct_min",
+        "wrong_pct_max",
+        "wrong_too_far_pct_min"
+      ],
+      "properties": {
+        "real_images": {
+          "type": "integer"
+        },
+        "evaluation_sets": {
+          "type": "integer"
+        },
+        "wrong_pct_min": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "wrong_pct_max": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "wrong_too_far_pct_min": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "camera",
+          "images",
+          "correct_pct",
+          "missing_pct",
+          "wrong_pct",
+          "wrong_among_returned_pct",
+          "wrong_too_far_pct",
+          "error_cm_median",
+          "error_cm_p90",
+          "wrong_pct_1cm"
+        ],
+        "properties": {
+          "camera": {
+            "type": "string"
+          },
+          "images": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "correct_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "missing_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "wrong_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "wrong_among_returned_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "wrong_too_far_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "wrong_pct_1cm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "error_cm_median": {
+            "type": "number"
+          },
+          "error_cm_p90": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "models": {
+      "type": "object"
+    },
+    "calibration_heldout_loss_pp": {
+      "type": "object",
+      "required": [
+        "d415",
+        "d435",
+        "l515"
+      ],
+      "properties": {
+        "d415": {
+          "type": "object",
+          "required": [
+            "uncalibrated",
+            "calibrated"
+          ],
+          "properties": {
+            "uncalibrated": {
+              "type": "number"
+            },
+            "calibrated": {
+              "type": "number"
+            }
+          }
+        },
+        "d435": {
+          "type": "object",
+          "required": [
+            "uncalibrated",
+            "calibrated"
+          ],
+          "properties": {
+            "uncalibrated": {
+              "type": "number"
+            },
+            "calibrated": {
+              "type": "number"
+            }
+          }
+        },
+        "l515": {
+          "type": "object",
+          "required": [
+            "uncalibrated",
+            "calibrated"
+          ],
+          "properties": {
+            "uncalibrated": {
+              "type": "number"
+            },
+            "calibrated": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}

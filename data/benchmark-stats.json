@@ -1,0 +1,106 @@
+{
+  "release": "0.1.0",
+  "protocol": "Raw depth on the transparent-object mask, GT-valid pixels, 5% tolerance, pooled over pixels.",
+  "headline": {
+    "real_images": 4510,
+    "evaluation_sets": 5,
+    "wrong_pct_min": 8.56,
+    "wrong_pct_max": 65.625,
+    "wrong_too_far_pct_min": 99.816,
+    "error_cm_median_min": 3.475,
+    "error_cm_median_max": 6.225,
+    "missing_pct_cg_d415": 62.546,
+    "missing_pct_transcg_l515": 4.381,
+    "wrong_pct_transcg_l515": 65.625
+  },
+  "groups": [
+    {
+      "camera": "CG d415",
+      "images": 90,
+      "correct_pct": 23.642,
+      "missing_pct": 62.546,
+      "wrong_pct": 13.812,
+      "wrong_among_returned_pct": 36.877,
+      "wrong_too_far_pct": 99.958,
+      "error_cm_median": 5.175,
+      "error_cm_p90": 8.675,
+      "wrong_pct_1cm": 22.621
+    },
+    {
+      "camera": "CG d435 test",
+      "images": 23,
+      "correct_pct": 51.581,
+      "missing_pct": 32.175,
+      "wrong_pct": 16.243,
+      "wrong_among_returned_pct": 23.949,
+      "wrong_too_far_pct": 100.0,
+      "error_cm_median": 3.875,
+      "error_cm_p90": 5.575,
+      "wrong_pct_1cm": 44.923
+    },
+    {
+      "camera": "CG d435 val",
+      "images": 173,
+      "correct_pct": 29.34,
+      "missing_pct": 39.717,
+      "wrong_pct": 30.943,
+      "wrong_among_returned_pct": 51.329,
+      "wrong_too_far_pct": 99.816,
+      "error_cm_median": 6.225,
+      "error_cm_p90": 10.825,
+      "wrong_pct_1cm": 45.921
+    },
+    {
+      "camera": "TransCG D435",
+      "images": 2175,
+      "correct_pct": 65.274,
+      "missing_pct": 26.166,
+      "wrong_pct": 8.56,
+      "wrong_among_returned_pct": 11.594,
+      "wrong_too_far_pct": 100.0,
+      "error_cm_median": 3.475,
+      "error_cm_p90": 5.875,
+      "wrong_pct_1cm": 16.959
+    },
+    {
+      "camera": "TransCG L515",
+      "images": 2049,
+      "correct_pct": 29.995,
+      "missing_pct": 4.381,
+      "wrong_pct": 65.625,
+      "wrong_among_returned_pct": 68.631,
+      "wrong_too_far_pct": 100.0,
+      "error_cm_median": 5.775,
+      "error_cm_p90": 9.975,
+      "wrong_pct_1cm": 91.348
+    }
+  ],
+  "models": {
+    "dfnet_transcg_d435_test_wrong_pct": {
+      "raw": 13.223,
+      "dfnet": 6.246
+    },
+    "dfnet_cg_d415_wrong_pct": {
+      "raw": 13.812,
+      "dfnet": 39.033
+    },
+    "flag_recall_all_wrong_pct_min": 91.461,
+    "flag_recall_all_wrong_pct_max": 99.346,
+    "predicted_mask_area_vs_gt_pct_min": 154.78,
+    "predicted_mask_area_vs_gt_pct_max": 260.93
+  },
+  "calibration_heldout_loss_pp": {
+    "d415": {
+      "uncalibrated": 97.201,
+      "calibrated": 38.372
+    },
+    "d435": {
+      "uncalibrated": 88.923,
+      "calibrated": 54.756
+    },
+    "l515": {
+      "uncalibrated": 43.311,
+      "calibrated": 7.438
+    }
+  }
+}

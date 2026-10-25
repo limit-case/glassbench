@@ -1,0 +1,33 @@
+.venv/
+datasets/
+__pycache__/
+.DS_Store
+synth/
+
+# model weights and archives (kept outside the repo, e.g. ~/glassbench_models/)
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.tar
+*.zip
+*.blend
+*.blend1
+# build artifacts
+*.aux
+*.log
+*.synctex.gz
+texput.*
+*.pyc
+.ipynb_checkpoints/
+
+# technical report: kept locally, not part of this release
+report/
+
+# local tooling, environment and credentials
+.env
+.env.*
+*.pem
+credentials*.json
+id_rsa*

@@ -1,0 +1,21 @@
+{
+ "_note": "Frozen from calibration_search.csv: lowest calibration loss subject to >=98% correct on opaque-twin renders (stereo). Calibration sets: real CG d435 val (stereo), real TransCG L515 train scenes (ToF). Held-out sets were not used. lr_tol and a_min are flat directions (ties), the first minimum in grid order is used.",
+ "stereo": {
+  "params": {
+   "uniqueness": 40,
+   "lr_tol": 4,
+   "texture_min": 0
+  },
+  "calibration_loss": 14.689310359642278,
+  "uncalibrated_loss": 52.77461872918447
+ },
+ "tof": {
+  "params": {
+   "g": 2,
+   "t_glass": 0.6,
+   "a_min": 0
+  },
+  "calibration_loss": 9.367548253238937,
+  "uncalibrated_loss": 31.508472506881255
+ }
+}

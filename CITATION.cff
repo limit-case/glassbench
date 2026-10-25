@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use GlassBench, please cite it as below."
+type: dataset
+title: "GlassBench: Silent Depth Failures on Transparent Objects"
+authors:
+  - name: Limit Case
+version: "0.1.0"
+date-released: "2026-10-25"
+url: "https://github.com/limit-case/glassbench"
+repository-code: "https://github.com/limit-case/glassbench"
+license: Apache-2.0

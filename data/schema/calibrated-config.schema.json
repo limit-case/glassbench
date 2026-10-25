@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/limit-case/glassbench/data/schema/calibrated-config.schema.json",
+  "title": "Frozen calibration parameters",
+  "type": "object",
+  "required": [
+    "stereo",
+    "tof"
+  ],
+  "properties": {
+    "_note": {
+      "type": "string"
+    },
+    "stereo": {
+      "type": "object",
+      "required": [
+        "params",
+        "calibration_loss",
+        "uncalibrated_loss"
+      ],
+      "properties": {
+        "params": {
+          "type": "object",
+          "required": [
+            "uniqueness",
+            "lr_tol",
+            "texture_min"
+          ],
+          "properties": {
+            "uniqueness": {
+              "type": "number"
+            },
+            "lr_tol": {
+              "type": "number"
+            },
+            "texture_min": {
+              "type": "number"
+            }
+          }
+        },
+        "calibration_loss": {
+          "type": "number"
+        },
+        "uncalibrated_loss": {
+          "type": "number"
+        }
+      }
+    },
+    "tof": {
+      "type": "object",
+      "required": [
+        "params",
+        "calibration_loss",
+        "uncalibrated_loss"
+      ],
+      "properties": {
+        "params": {
+          "type": "object",
+          "required": [
+            "g",
+            "t_glass",
+            "a_min"
+          ],
+          "properties": {
+            "g": {
+              "type": "number"
+            },
+            "t_glass": {
+              "type": "number"
+            },
+            "a_min": {
+              "type": "number"
+            }
+          }
+        },
+        "calibration_loss": {
+          "type": "number"
+        },
+        "uncalibrated_loss": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

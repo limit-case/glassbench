@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/limit-case/glassbench/data/schema/sgbm-config.schema.json",
+  "title": "Stereo simulator matcher settings",
+  "type": "object",
+  "required": [
+    "min_disp",
+    "block",
+    "uniqueness",
+    "speckle_window",
+    "speckle_range",
+    "disp12",
+    "prefilter_cap",
+    "min_depth",
+    "max_depth",
+    "num_disp"
+  ],
+  "properties": {
+    "min_disp": {
+      "type": "number"
+    },
+    "block": {
+      "type": "number"
+    },
+    "uniqueness": {
+      "type": "number"
+    },
+    "speckle_window": {
+      "type": "number"
+    },
+    "speckle_range": {
+      "type": "number"
+    },
+    "disp12": {
+      "type": "number"
+    },
+    "prefilter_cap": {
+      "type": "number"
+    },
+    "min_depth": {
+      "type": "number"
+    },
+    "max_depth": {
+      "type": "number"
+    },
+    "num_disp": {
+      "type": "object",
+      "required": [
+        "d415",
+        "d435"
+      ],
+      "properties": {
+        "d415": {
+          "type": "integer"
+        },
+        "d435": {
+          "type": "integer"
+        }
+      }
+    },
+    "_note": {
+      "type": "string"
+    }
+  }
+}

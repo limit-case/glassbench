@@ -1,0 +1,58 @@
+name: Custom batch request
+description: Ask for a synthetic batch calibrated to your camera and objects.
+title: "Custom batch request: "
+labels: ["custom-batch"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us what fails for you. This issue is public, so describe the need at a
+        level you are comfortable sharing. We reply here, and confirm terms in the
+        reply before any work starts.
+
+  - type: input
+    id: organisation
+    attributes:
+      label: Organisation
+    validations:
+      required: true
+
+  - type: textarea
+    id: task
+    attributes:
+      label: Robot and task
+      description: What the robot does with the depth, for example bin picking or placing on a shelf.
+    validations:
+      required: true
+
+  - type: input
+    id: camera
+    attributes:
+      label: Camera model
+      description: Model and firmware or mode if you know it, for example RealSense D435 or Intel L515.
+    validations:
+      required: true
+
+  - type: textarea
+    id: objects
+    attributes:
+      label: Objects and materials that fail
+      description: Glass, clear plastic, liquids, reflective metal, and the shapes you care about.
+    validations:
+      required: true
+
+  - type: input
+    id: volume
+    attributes:
+      label: Approximate volume
+      description: Number of scenes or images.
+    validations:
+      required: true
+
+  - type: input
+    id: timeline
+    attributes:
+      label: Timeline
+      description: When you need the first delivery.
+    validations:
+      required: true

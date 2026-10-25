@@ -1,0 +1,44 @@
+name: Report a problem
+description: A wrong number, a broken script, or documentation that does not match the files.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Every number here is measured, so it can be wrong in a way we can
+        find and fix. Please tell us where to look.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - A published number looks wrong
+        - A script fails or gives a different result
+        - A file does not match docs/schema.md
+        - The documentation is unclear or wrong
+        - Something else
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: File or script
+      description: For example data/three_bucket_summary.csv or tools/evaluation/three_bucket.py.
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: What you found
+      description: The row or command, what you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        Please do not attach ClearGrasp or TransCG files. The file and row are enough
+        for us to find the problem.
