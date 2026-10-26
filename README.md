@@ -97,6 +97,6 @@ This benchmark measures other people's captures. We thank the authors of [ClearG
 ---
 
 <p align="center">
-  <a href="https://github.com/limit-case"><strong>Limit Case</strong></a><br>
+  <a href="https://limitcase.tech"><strong>Limit Case</strong></a><br>
   <a href="https://github.com/limit-case/glassbench">GitHub</a>
 </p>
